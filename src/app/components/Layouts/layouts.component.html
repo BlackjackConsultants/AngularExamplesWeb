@@ -1,0 +1,17 @@
+<h1>Use flex display to show a bottom give adjust to a top message</h1>
+<p>This is a common problem.  You can use height:calc(100%-50px) only when you are aware of the height before hand.  When you dont know this information
+  then you have to do something like this.</p>
+<button (click)="toggleMessageVisibility()">toggle message visibility</button>
+<div class="container" fxLayout="column">
+  <div class="error" *ngIf="shown" fxFlex="0 0 auto">
+    Indian Prime Minister Narendra Modi has hailed his path-breaking move to strip the Kashmir region it administers of its autonomy in a strongly worded speech marking
+    India's independence day.
+  </div>
+  <div class="content" fxFlex>
+    U.S. officials view Greenland as important to American national-security interests. A decades-old defense treaty between Denmark and the U.S. gives the U.S. military virtually unlimited rights in Greenland at America’s northernmost base, Thule Air Base. Located 750 miles north of the Arctic Circle, it includes a radar station that is part of a U.S. ballistic missile early-warning system. The base is also used by the U.S. Air Force Space Command and the North American Aerospace Defense Command.
+    The U.S. has sought to derail Chinese efforts to gain an economic foothold in Greenland. The Pentagon worked successfully in 2018 to block China from financing three airports on the island.
+    People outside the White House have described purchasing Greenland as an Alaska-type acquisition for Mr. Trump’s legacy, advisers said. The few current and former White House officials who had heard of the notion described it with a mix of anticipation and apprehension, since it remains unknown how far the president might push the idea.
+    It generated a cascade of questions among his advisers, such as whether the U.S. could use Greenland to establish a stronger military presence in the Arctic, and what kind of research opportunities it might present.
+    Though it has vast natural resources across its 811,000 square miles, Greenland relies on $591 million of subsidies from Denmark annually, which make up about 60% of its annual budget, according to U.S. and Danish government statistics.
+  </div>
+</div>

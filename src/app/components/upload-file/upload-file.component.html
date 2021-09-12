@@ -1,0 +1,30 @@
+<ul>
+  <li>
+    <h2>Uploading a file</h2>
+    <p>
+      This is an example of how you can upload a file in the client to the server.  For this example i created a google
+      cloud function to receive the request.  It is very simple to upload a file to the server. All you need is an input element
+      with teh type=file.  See the upload function and the fileUploadService.
+    </p>
+    <p>I also created a postman request to test the firebase function.</p>
+    <div class="form-group">
+      <label for="file">Choose File</label>
+      <input type="file" id="file" [(ngModel)]="files "
+             (change)="handleFileInput($event)">
+    </div>
+    <br/>
+    <button (upload)="upload()">Send File</button>
+  </li>
+  <li>
+    <h2>Saving a json content to local file</h2>
+    <p>
+      This use case is typical in cases where you want to export a json content and save in a file.
+    </p>
+
+    <br/>
+    <button (click)="saveFile()">Save File</button>
+  </li>
+</ul>
+
+
+

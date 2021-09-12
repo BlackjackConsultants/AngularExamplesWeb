@@ -1,0 +1,79 @@
+<h1>Typescript</h1>
+<ul>
+  <li>
+    <h2>Converting enum to string</h2>
+    <p>In this example i get an enum and convert it to string.</p>
+    <button (click)="getEnumString()">Convert</button>
+  </li>
+  <li>
+    <h2>Private Variables</h2>
+    <button (click)="onAccessPrivateVariables()">Accessing private variables</button>
+  </li>
+  <li>
+    <h2>Iterating through object properties dynamically</h2>
+    <button (click)="iteratingThroughObjectPropertiesDynamically()">Iterating through object properties</button>
+  </li>
+  <li>
+    <h2>Arrays</h2>
+    <h3>Inserting items in array using splice</h3>
+    <button (click)="arrayInsert()">Insert Value</button><br />
+    <button (click)="findInArray()">Find method</button><br />
+    {{list}}
+  </li>
+  <li>
+    <h2>Array foreach</h2>
+    <button (click)="foreach()">Foreach item in array</button>
+  </li>
+  <li>
+    <h2>Creating Dictionaries</h2>
+    <button (click)="createDictionary()">Creating Dictionary</button>
+  </li>
+  <li>
+    <h2>Function Overloading</h2>
+    <p>
+      Method overloading in Typescript is a little different than c#.  You will only have one implementation
+      and several declarations of the different supported overloads.  You have no option but to have an if
+      statement to handle the overloads.
+    </p>
+    perimeter: {{perimeter}} <br />
+    perimeter2: {{perimeter2}} <br />
+    perimeter4: {{perimeter4}} <br />
+    <button (click)="functionOverloading()">Function Overloading 1</button>
+  </li>
+  <li>
+    <h2>Out Parameters</h2>
+    <p>
+      To see the results see the console window. Basically you cannot use a value type and expect values to chage as typecript uses value types.
+      in order to get the changed parameter you have to pass an object and change its properties.
+    </p>
+    <button (click)="outParams()">Out Parameters</button>
+  </li>
+  <li>
+    <h2>Async Await</h2>
+    <p>
+      Shows how to use Async and Await in a function.  Basically when a function has the async keyword, this means that it returns
+      an implicit promise.
+    </p>
+    <button (click)="asyncSample()">Async Test</button>
+  </li>
+  <li>
+    <h2>String Literals</h2>
+    <p>Notice the compilation powershell window. you get error that type dog not assignable to cat.</p>
+    <button (click)="stringLiterals()">string literal test</button>
+  </li>
+  <li>
+    <h2>Callback Functions</h2>
+    <p>Notice the compilation powershell window. you get error that type dog not assignable to cat.</p>
+    <button (click)="callbackFunctions()">Using callback functions</button>
+  </li>
+  <li>
+    <h2>Template Strings</h2>
+    <p>Concatenate easily with template strings.</p>
+    <button (click)="templateStrings()">TEmplate strings</button>
+  </li>
+  <li>
+    <h2>Convert json to object</h2>
+    <p>Convert a json string to an object.</p>
+    <button (click)="jsonToObject()">object to json</button>
+  </li>
+</ul>

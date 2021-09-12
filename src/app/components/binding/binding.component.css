@@ -1,0 +1,18 @@
+.isReadonly {
+  background-color: lightcoral;
+}
+
+.isNotReadonly {
+  background-color: lightgreen;
+}
+
+h1 {
+  margin: 10px 0 0 0;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: darkgrey;
+}
+
+.width-bind {
+    background-color: yellow;
+}

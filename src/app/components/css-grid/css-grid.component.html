@@ -1,0 +1,53 @@
+
+<ul>
+  <li>
+    <h1>CSS Grid Examples</h1>
+    <p>The following shows css grid layout examples.</p>
+  </li>
+  <li>
+    <div class="rotation-container">
+      <div class="score1">Team 1</div>
+      <div class="game" #game>
+        <div #domData class="dom-data" style="background-color: yellow">
+          <p>
+            Rotating a component called domData which is in a cell of the grid. In this process
+            I:
+          </p>
+          <ul>
+            <li>Set the element to absolute first</li>
+          </ul>
+          <span [style.display]="width ? 'block' : 'none'">width: {{width}}</span><br />
+          <span [style.display]="height ? 'block' : 'none'">height: {{height}}</span> <br />
+          <button (click)="setPosition()">Set the child as absolute</button><br />
+          <button (click)="rotate()">rotate the child</button><br />
+          <button (click)="adjust()">Making width and height the same</button><br />
+          <button (click)="setLeft()">set left</button><br />
+          <button (click)="setTop()">set top</button><br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <button (click)="allInOne()">ALL IN ONE</button><br />
+
+        </div>
+      </div>
+      <div class="score2">
+        Team 2
+      </div>
+    </div>
+
+  </li>
+  <li>
+    <div class="container">
+      <div class="photo">
+        <img src="https://wallpaper-gallery.net/games/1.png" />
+      </div>
+      <div class="info">info</div>
+      <div class="tag">tag</div>
+      <div class="comment">comment</div>
+      <div class="album">album</div>
+      <div class="rotate">rotate</div>
+    </div>
+  </li>
+</ul>

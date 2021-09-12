@@ -1,0 +1,13 @@
+li {
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  list-style: none;
+}
+
+.is-visible {
+  background-color: yellow;
+  display: block;
+  width: 100px;
+  height: 100px;
+}

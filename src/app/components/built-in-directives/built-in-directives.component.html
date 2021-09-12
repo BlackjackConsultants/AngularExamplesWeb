@@ -1,0 +1,27 @@
+<h1>Built in Directives</h1>
+<h2>ngShow</h2>
+<span [ngClass]="{'red': color == 1, 'blue':color == 2, 'yellow': color == 3}">PrimaryColors</span>
+<button (click)="changeColor(1)">Red</button>
+<button (click)="changeColor(2)">blue</button>
+<button (click)="changeColor(3)">Yellow</button>
+
+<h2>ngStyle</h2>
+<span [ngStyle]="currentStyle">PrimaryColors</span>
+<button (click)="changeColor(1)">Red</button>
+<button (click)="changeColor(2)">blue</button>
+<button (click)="changeColor(3)">Yellow</button>
+<h1>My Custom Directives</h1>
+<p>As a developer, you can create your own directives.  These can be structure or attribute directives. </p>
+
+<h2>Structural Directives</h2>
+<p>This example shows how the directive can show and hide an element.</p>
+<p *showWhenEven='value'>
+    testing the showWhenEven directive.  Notice how the value inside the element shows and hide depeneding on the value when button is 
+    clicked.
+</p>
+value: {{value}}
+<button (click)='onAdd()'>add 1</button>
+<h3>Directive that appends elements</h3>
+<p sToolTip>
+We append to the directive from code
+</p>

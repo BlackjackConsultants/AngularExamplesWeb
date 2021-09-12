@@ -1,0 +1,20 @@
+.using-css {
+  /* background-image: url("../../../assets/images/flashcards.svg"); */
+  background-color: lightgoldenrodyellow;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  width: auto;
+  height: -moz-calc(100% - 78px);
+  height: -webkit-calc(100% -78px);
+  height: -o-calc(100% - 78px);
+  height: calc(100% - 78px);
+  border-width: 0;
+  /*position: absolute;*/
+  bottom: 5%;
+  right: 5%;
+}
+
+li:nth-child(1) {
+    height: 400px;
+}

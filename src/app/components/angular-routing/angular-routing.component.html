@@ -1,0 +1,8 @@
+<div>
+  <mat-toolbar color="primary">
+    <a routerLink="/routing">another link</a>
+    <button mat-button [routerLink]="['/routing', {outlets: {'test': ['testOutlet']}}]" style="padding-left: 30px;">Navigate to named route</button>
+    <button mat-button (click)="onClick()" style="padding-left: 30px;">Navigate to named route</button>
+  </mat-toolbar>
+  <router-outlet name="test"></router-outlet>
+</div>

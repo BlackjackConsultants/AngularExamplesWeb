@@ -1,0 +1,13 @@
+<div class="passing-parameters-by-binding">
+  <h1>Passing Parameters To Animation By Binding</h1>
+  <p></p>
+  <div class="animated-object"
+       [@colorAnimation]="{value: colorAnimationState, params : { toTop: top, toColor: color }}">
+    animation object
+  </div>
+  <b>animation state: </b>{{colorAnimationState}}
+  <br />
+  <button (click)="animateStart()">start Animate!</button>
+  <button (click)="animateEnd()">end Animation!</button>
+</div>
+

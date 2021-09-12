@@ -1,0 +1,24 @@
+<ul>
+  <li>
+    <h2>mouse over</h2>
+    <button (mouseover)="onMouseOver()">onMouseOver</button>
+
+  </li>
+  <li>
+    <h2>click event</h2>
+    <p>This button shows how to hook the onclick event, but i am also using it to determine if the #visibleElement is set to
+    true or not.</p>
+    <button (click)="onClick()">click</button>
+  </li>
+  <li>
+    <h2>key press</h2>
+    <p>you have to set focus on button for it to work.</p>
+    <button (keyup.enter)="press()"> Key Press</button> <br />
+    <p>to handle keypress like a form does, either use a form, or set the keypress on input element</p>
+    <input (keyup.enter)="press()" value="key press" />
+  </li>
+  <li>
+    <h2>element is visible</h2>
+    <div #visibleElement class="is-visible"></div>
+  </li>
+</ul>

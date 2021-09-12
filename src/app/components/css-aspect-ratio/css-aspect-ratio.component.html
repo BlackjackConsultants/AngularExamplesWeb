@@ -1,0 +1,25 @@
+<mat-horizontal-stepper #horizontalStepper [linear]="true">
+  <mat-step>
+    <h1 class="aspect-ratio-box">
+      <div class="aspect-ratio-box-inside">
+        <div class="flexbox-centering">
+          <div class="viewport-sizing">
+            Happy Birthday
+          </div>
+          <button class="ok-button">OK</button><br />
+          <button class="cancel-button">CANCEL</button>
+        </div>
+      </div>
+    </h1>
+  </mat-step>
+  <mat-step>
+    <div class="scaleable-wrapper" id="scaleable-wrapper" (window:resize)="onResize()">
+      <div class="very-specific-design" id="very-specific-design">
+        <h1>I am designed just so.</h1>
+        <p>My design is intentional. I want to be scaled in such a way that scales the design. No reflows or anything, just straight up scaling. Kinda like SVG.</p>
+        <mat-icon svgIcon="flashcards"></mat-icon>
+        <p class="bigred"> ✖ ✖ ✖ </p>
+      </div>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

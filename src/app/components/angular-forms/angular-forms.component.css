@@ -1,0 +1,81 @@
+form {
+  padding: 20px;
+  margin: 20px;
+}
+
+.form-basic{
+  display: grid;
+  grid-template-rows: repeat(8, 30px);
+  grid-template-columns: repeat(2, 200px);
+  grid-gap: 10px;
+  border-color: rgb(179, 179, 179);
+  border-style: solid;
+  border-width: 3px;
+}
+
+.first-name-label {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.first-name-input {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.last-name-label {
+  grid-row: 5;
+  grid-column: 1;
+}
+
+.alias-input {
+  grid-row: 7;
+  grid-column: 2;
+}
+
+.alias-label {
+  grid-row: 7;
+  grid-column: 1;
+}
+
+.last-name-input {
+  grid-row: 5;
+  grid-column: 2;
+}
+
+.first-name-error {
+  grid-row: 2;
+  grid-column: 1 / span 2 ;
+  color: red;
+}
+
+.last-name-error {
+  grid-row: 4;
+  grid-column: 1 / span 2;
+  color: red;
+}
+
+.alias-error {
+  grid-row: 6;
+  grid-column: 1;
+  color: red;
+}
+
+.alias-error-required {
+  grid-row: 6;
+  grid-column: 2;
+  color: red;
+}
+
+.error {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  color: red;
+}
+
+.submit {
+  grid-row: 8;
+  grid-column: 2;
+}
+
+

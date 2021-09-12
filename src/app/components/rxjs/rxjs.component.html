@@ -1,0 +1,88 @@
+<ul>
+  <li>
+    <h1>Rxjs Operators</h1>
+    <p>
+      Rxjs is an observer library that allows for streaming data. it contains over 100 operators to manipulate seemed data.
+    </p>
+  </li>
+  <li>
+    <h2>Merge</h2>
+    <p>The merge.</p>
+    <button (click)="mergeOperator()">merge</button>
+  </li>
+  <li>
+    <h2>ForkJoin</h2>
+    <p>
+      waits for observables to complete then emits values.  If objservers are not dependent on each other
+      otherwise look into combinelatest.
+    </p>
+    <button (click)="forkJoin()">forkJoin()</button>
+  </li>
+  <li>
+    <h2>CombineLatest</h2>
+    <p>
+      waits for all observers to finish but allows for you to map second observer with values of
+      parent observer.
+    </p>
+    <button (click)="combineLatest()">CombineLatest()</button>
+  </li>
+  <li>
+    <h2>CombineAll</h2>
+    <p>
+      When source observable completes use combineLatest with collected observables
+    </p>
+    <button (click)="combineAll()">combineAll()</button>
+  </li>
+  <li>
+    <h2>Take</h2>
+    <p>
+      Emits only the first count values emitted by the source Observable.
+    </p>
+    <button (click)="take()">take</button>
+  </li>
+  <li>
+    <h2>Map</h2>
+    <p>
+      Applies a given project function to each value emitted by the source Observable, and emits the resulting values as an Observable.
+    </p>
+    <button (click)="map()">map</button>
+  </li>
+</ul>
+
+<h1> Common Problems </h1>
+<ul>
+  <li>
+    <h2>One to many</h2>
+    <p>With this problem, you have a parent class that has a list of classes.  You need to get a table and its children.
+    you have 2 options. subscribe to get parent values, the one side and then create another subscriber to get list items. or
+    create a function that creates observable function that gets both the parent and children and then returns stream item with next.
+    </p>
+
+  </li>
+</ul>
+
+<h1> Concepts </h1>
+<ul>
+  <li>
+    <h2>Observable</h2>
+  </li>
+  <li>
+    <h2>Subscription</h2>
+  </li>
+  <li>
+    <h2>Observers</h2>
+  </li>
+  <li>
+    <h2>Operators</h2>
+    <p>
+      Now again read/remember “Operators: Also Just Functions” section from this article by Ben Lesh. He greatly explained about what is Operator.
+      Just read and then come back here.  Done ? Great!
+      Now hell you know that,
+      •	A pure function which takes one Observable as input and generates another Observable as output.
+      •	Subscribing to the output Observable will also subscribe to the input Observable.
+    </p>
+    <h3>chaining</h3>
+    <button (click)="chaining()">chaining</button>
+  </li>
+</ul>
+

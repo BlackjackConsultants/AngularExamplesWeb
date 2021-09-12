@@ -1,0 +1,31 @@
+.parent, body, html {
+  height: 100%;
+  width: 100%;
+}
+
+.left-child {
+  background-color: #f5f3f3;
+  padding-top: 5px;
+  padding-left: 5px;
+  overflow: auto;
+}
+
+.right-child {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.menuItem {
+  border-top-style: none;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.menu {
+  overflow-y: none;
+  height: 100%;
+  padding: 0px;
+}

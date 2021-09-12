@@ -1,0 +1,92 @@
+<h1>  One way Binding </h1>
+<ul>
+  <li>
+    <h2>Binding Interpolation</h2>
+    <h3>Adding a new line</h3>
+    <p [innerHTML]="interpolationNewLines"></p>
+  </li>
+  <li>
+    <h2>Binding ngIf, enums</h2>
+    <h3>*ngIf binding to boolean</h3>
+    <div *ngIf="isReadonly" class="isReadonly">is readonly</div>
+    <div *ngIf="!isReadonly" class="isNotReadonly">is not readonly</div>
+    <h3>Binding input as checkbox</h3>
+    <div id="checkbox">
+      <input type="checkbox" [(ngModel)]="isReadonly">
+      <label for="select_all">Set to readOnly</label>
+    </div>
+    <h3> Binding enums in ngIf</h3>
+    <p>Typescript supports enums.  You can bind your html template to an enum property of the component.</p>
+    <div *ngIf="animal==AnimalEnum.None">No Animals Set</div>
+    <div *ngIf="animal==AnimalEnum.Dog">Showing a Dog</div>
+    <div *ngIf="animal==AnimalEnum.Cat">Showing a Cat</div>
+    <button (click)="showDog()">show Dog</button>
+    <button (click)="showCat()">show Cat</button>
+    AgentStatus={{AgentStatus[1]}}
+    AnimalEnum={{AnimalEnum[1]}}
+  </li>
+  <li>
+    <h2>two way binding enum into dropdown select control.</h2>
+     <select (change)="parseValue($event)" [(ngModel)]="optionSelected"> 
+      <option>--select--</option>
+      <option *ngFor="let name of options"
+              [value]="name">
+        {{name}}
+      </option>
+    </select>
+    <button (click)="onSelectClick()"> Set dropdown value programatically</button>
+    <select [(ngModel)]="occupationSelected">
+      <option>--select--</option>
+      <option *ngFor="let occupation of occupations"
+              [value]="occupation.name">
+        {{occupation.name}}
+      </option>
+    </select>
+    <select [(ngModel)]="occupationSelected2">
+      <option>--select--</option>
+      <option *ngFor="let occupation of occupations"
+              [value]="occupation.id">
+        {{occupation.name}}
+      </option>
+    </select>
+    <h3 [hidden]="myValue == null">
+      You entered {{AgentStatus[myValue]}}
+      <br>
+      You are {{isOffline ? "offline" : "not offline"}}.
+    </h3>`
+  </li>
+  <li>
+    <h2>ngFor directives and Input</h2>
+    <div *ngFor="let name of options">
+      <!-- <input [(ngModel)]="name" /> -->
+    </div>
+  </li>
+  <li>
+    <h2> Binding Attributes </h2>
+    <p>In this section I show you how to bind an attribute to a property of the component.</p>
+    <h3>img.src</h3>
+    <img [attr.src]="imgUrl" style="width: 50px; height: 50px;" />
+
+    <app-sample-component [controlWidth]="100" [controlHeight]="100"></app-sample-component>
+
+    Binding style
+    <h3>div.background-color</h3>
+    <div [style.background-color]="color" style="width:100px;height:100px;border-width:5px;border-style:solid;border-color:green"> </div>
+    <h3>two way binding with ngmodel</h3>
+    <br />
+    <input [(ngModel)]="twoWayBind" />
+    <h3>div.width</h3>
+    <div [style.width.px]="width" style="width:100px;height:100px;border-width:5px;border-style:solid;border-color:green"> </div>
+
+  </li>
+  <li>
+    <h2>Binding to Observable</h2>
+    <p>Check BG sln. it has auth.user in several places that serve as good examples</p>
+  </li>
+  <li><h2>Binding to a model from parent</h2>
+  <p>Say i have a parent.model which as a property object that i want to bind in another component inside the parent.</p>
+  </li>
+</ul>
+
+
+

@@ -1,0 +1,93 @@
+body {
+  background: #ccc;
+}
+
+/*step 1*/
+.aspect-ratio-box {
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  background-color: lightgoldenrodyellow;
+  display: block;
+  position: relative;
+}
+
+.flexbox-centering {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgreen;
+}
+
+.ok-button {
+  width: 11%;
+  min-width: 22px;
+  font-size: 2vw;
+  position: absolute;
+  bottom: 50px;
+  left: 11%;
+}
+
+.cancel-button {
+  width: 11%;
+  min-width: 22px;
+  font-size: 2vw;
+  position: absolute;
+  bottom: 50px;
+  right: 11%;
+}
+
+.mat-horizontal-content-container {
+  height: 50%;
+  background-color: lightcyan;
+  position: relative;
+  display: block;
+}
+
+.viewport-sizing {
+  font-size: 5vw;
+}
+
+/*step 2*/
+.very-specific-design {
+  width: 600px;
+  height: 400px;
+  padding: 50px;
+  text-align: center;
+  background: white;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+.scaleable-wrapper {
+  padding: 20px;
+  resize: both;
+  position: relative;
+  background: #666;
+  height: 400px;
+}
+
+.scaleable-wrapper mat-icon {
+  width: 50%;
+  height: auto;
+}
+
+.ui-resizable-se {
+  width: 10px;
+  height: 10px;
+  background: orange;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.bigred {
+  color: red;
+  font-size: 5rem;
+}
+
+mat-horizontal-stepper {
+  height: 100%;
+}

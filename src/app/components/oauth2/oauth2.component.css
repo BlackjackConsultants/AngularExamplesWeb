@@ -1,0 +1,16 @@
+.right-child {
+  padding: 20px;
+  overflow-y: auto;
+  background-color: white;
+}
+
+.example {
+  background-color: #f0f0f0;
+  border-color: gray;
+  border-style: solid;
+  border-width: 1px;
+  color: black;
+  width: 100%;
+  margin: 5px;
+  padding: 5px;
+}

@@ -1,0 +1,128 @@
+<h1>Reactive Form</h1>
+<p>Forms allow for the input entered by user to be validated.</p>
+<h2>Reactive Form Basic (no material controls)</h2>
+<p>Reactive forms do not use angular binding. In this example i use it to validate input controls.</p>
+<p>The firstname is validate on change and the last name is validate on submit.</p>
+<form [formGroup]="contactForm" (ngSubmit)="basicSumbit()" class="form-basic">
+  <p class='error' *ngIf=!contactForm.valid>Error</p>
+  <!--first name-->
+  <label class="first-name-label">First Name</label>
+  <p class='first-name-error' *ngIf=!contactForm.controls.firstName.valid>
+    This field is required
+  </p>
+  <input class="first-name-input" type="text" formControlName="firstName"><br />
+  <!--last name-->
+  <div class='last-name-error'>
+    <p *ngIf="contactForm.controls.lastName.errors?.required">
+      This field is required
+    </p>
+    <p *ngIf="contactForm.controls.lastName.errors?.nameNotTaken">
+      Name not unique
+    </p>
+  </div>
+
+  <label class="last-name-label">Last Name</label>
+  <input class="last-name-input" type="text" formControlName="lastName"><br />
+
+  <!--alias-->
+  <p class='alias-error' *ngIf="contactForm.controls.alias.errors && contactForm.controls.alias.errors.required">
+    alias is duplicate, choose another alias
+  </p>
+  <p class='alias-error-required' *ngIf="contactForm.controls.alias.errors && contactForm.controls.alias.errors.userNameExists">alias is required</p>
+  <label class="alias-label">Alias</label>
+  <input class="alias-input" type="text" formControlName="alias"><br />
+
+  <button class="submit" type="submit" (click)="basicSumbit()" >Sumbit</button>
+</form> 
+
+<h2>Reactive Forms (with Material)</h2>
+<form [formGroup]="contactsFormGroup" (ngSubmit)="onSubmitUserDetails(contactsFormGroup.value)">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="First Name" formControlName="FirstName">
+    <mat-error *ngFor="let validation of validation_messages.FirstName">
+      <mat-error class="error-message"
+        *ngIf="contactsFormGroup.get('FirstName')?.hasError(validation.type) && (contactsFormGroup.get('FirstName')?.dirty || contactsFormGroup.get('FirstName')?.touched)">
+        {{validation.message}}</mat-error>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Last Name" formControlName="LastName">
+  </mat-form-field>
+  <mat-checkbox formControlName="FirstNameValidation">Pass First Name Validation</mat-checkbox><br />
+  <button (click)="validate()">validate</button><br />
+  <!--<mat-checkbox formControlName="LastNameValidation">Pass Last Name Validation</mat-checkbox><br/>-->
+  <mat-form-field>
+    <mat-select placeholder="Occupation" formControlName="Occupation">
+      <mat-option *ngFor="let occupation of Occupations" [value]="occupation.id">
+        {{ occupation.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Birth Date" formControlName="BirthDay">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div formArrayName="_phones" class="answer-item" *ngFor="let phone of phones.controls; let i = index;">
+    <div [formGroupName]="i">
+      <span style="padding: 0 15px 0 0">{{phone.value.type}}</span>
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+      </mat-form-field>
+    </div>
+  </div>
+  <br />
+  <button class="submit-btn" color="primary" mat-raised-button (click)="addPhone()">
+    Add Phone
+  </button>
+  <button class="submit-btn" color="primary" mat-raised-button type="submit" [disabled]="!contactsFormGroup.valid">
+    Submit
+  </button>
+</form>
+<h2>Reactive Forms inside wizard</h2>
+<mat-horizontal-stepper #horizontalStepper [linear]=true>
+  <mat-step>
+    <form [formGroup]="contactsGroup2" (ngSubmit)="onSubmitUserDetails2(contactsGroup2.value)">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="First Name" formControlName="FirstName">
+        <mat-error *ngFor="let validation of validation_messages.FirstName">
+          <mat-error class="error-message"
+            *ngIf="contactsGroup2.get('FirstName')?.hasError(validation.type) && (contactsGroup2.get('FirstName')?.dirty || contactsGroup2.get('FirstName')?.touched)">
+            {{validation.message}}</mat-error>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Last Name" formControlName="LastName">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Occupation" formControlName="Occupation">
+          <mat-option *ngFor="let occupation of Occupations" [value]="occupation.id">
+            {{ occupation.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker2" placeholder="Birth Date" formControlName="BirthDay">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </form>
+    <div>
+      <button class="submit-btn" color="primary" mat-button matStepperNext mat-raised-button type="submit"
+        [disabled]="!contactsGroup2.valid">
+        Next
+      </button>
+    </div>
+  </mat-step>
+  <mat-step>
+    last step is here!!!!
+    <br />
+    <button class="submit-btn" color="primary" mat-button matStepperPrevious mat-raised-button>
+      Back
+    </button>
+    <button class="submit-btn" color="primary" mat-button matStepperNext mat-raised-button type="submit"
+      [disabled]="!contactsFormGroup.valid">
+      Next
+    </button>
+  </mat-step>
+</mat-horizontal-stepper>

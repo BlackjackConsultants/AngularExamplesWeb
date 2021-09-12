@@ -1,0 +1,101 @@
+<div>
+  <ul>
+    <li>
+      <h2>mat-buttons</h2>
+      <p>Showing how to make a button with image and text. The first one uses google material icons and the second one uses my custom icon.</p>
+      <!--mat-button-->
+      <button mat-button class="poc-icon-button" routerLink="/home">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-button>
+        <mat-icon svgIcon="quickBooksIcon"></mat-icon>
+        <span>button text</span>
+      </button>
+    </li>
+    <!--mat-select (dropdown list)-->
+    <li>
+      <h2>mat-select</h2>
+      <mat-form-field>
+        <mat-select placeholder="Favorite food">
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            test {{ food.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </li>
+    <!--mat-slider-->
+    <li>
+      <h2>mat-slider</h2>
+      <mat-slider class="example-margin">
+      </mat-slider>
+    </li>
+    <!--mat-icon-->
+    <li>
+      <h2>mat-icon</h2>
+      <mat-icon class="small-icon" svgIcon="thumbs-up"></mat-icon>
+      <mat-icon class="medium-icon" svgIcon="thumbs-up"></mat-icon>
+      <mat-icon class="large-icon" svgIcon="thumbs-up"></mat-icon>
+    </li>
+    <!--mat-input-->
+    <li>
+      <h2>mat-input</h2>
+      <input matInput [ngModel]="person?.name" placeholder="MSRP" value="" name="msrp">
+      <button (click)="onclick()">add person name</button>
+    </li>
+    <!--mat-selection-list-->
+    <li>
+      <h2>mat-selection-list</h2>
+      <mat-selection-list #list [(ngModel)]="selectedOptions" (selectionChange)="handleSelection($event)">
+        <mat-list-option *ngFor="let filter of filterOptions"
+                         [value]="filter.value"
+                         [selected]='filter.selected'>
+          <span>
+            {{filter.text}}
+          </span>
+        </mat-list-option>
+      </mat-selection-list>
+
+    </li>
+    <!--mat-datepicker-->
+    <li>
+      <h2>mat-form-field</h2>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </li>
+    <!--mat-table-->
+    <li>
+      <h2>mat-table</h2>
+      <a routerLink="/mattable">Table Examples</a>
+    </li>
+    <!--mat-checkbox-->
+    <li>
+      <h2>mat-checkbox</h2>
+      <mat-checkbox [indeterminate]="false" [(ngModel)]="isPrivate">isPrivate</mat-checkbox>
+    </li>
+    <!--mat-stepper-->
+    <li>
+      <h2>mat-horizontal-stepper</h2>
+      <mat-horizontal-stepper linear="isLinear" #stepper>
+        <mat-step label="Upload">
+          testing
+        </mat-step>
+        <mat-step label="Map">
+          this
+        </mat-step>
+        <mat-step label="Results">
+          thing
+        </mat-step>
+      </mat-horizontal-stepper>
+    </li>
+    <!--mat dialog-->
+    <li>
+      <h2>mat dialog</h2>
+      <!--mat-dialog-->
+      <button (click)="openDialog()">open dialog</button>
+    </li>
+  </ul>
+</div>

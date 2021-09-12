@@ -1,0 +1,9 @@
+<p>
+  Animation is {{animate}}
+</p>
+<img #logo1 *ngIf="!animate" src="../assets/images/logoAnimation.svg" />
+
+<object #logo *ngIf="animate" type="image/svg+xml" data="../assets/images/logoAnimation.svg" class="shuffle center">
+  <img #logo1 src="../assets/images/logoAnimation.svg" (click)="onClick2()" />
+</object>
+<button (click)="onClick()">animate</button>

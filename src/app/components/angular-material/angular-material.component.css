@@ -1,0 +1,16 @@
+.small-icon {
+  width: 36px !important;
+  height: 36px !important;
+}
+.medium-icon {
+  width: 100px !important;
+  height: 100px !important;
+}
+.large-icon {
+  width: 200px !important;
+  height: 200px !important;
+}
+
+angular-material button mat-icon {
+  margin: 0 5px 0 0;
+}

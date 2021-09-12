@@ -1,0 +1,80 @@
+<mat-horizontal-stepper #horizontalStepper [linear]=true [style.display]="!isDesktop?'none':'inherit'">
+  <mat-step *ngIf="visibleSteps >= 1">
+    <ng-container *ngTemplateOutlet="stepDirective1"></ng-container>
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step *ngIf="visibleSteps >= 2">
+    <ng-container *ngTemplateOutlet="stepDirective2"></ng-container>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button *ngIf="visibleSteps!=2" mat-button matStepperNext>Next</button>
+      <button *ngIf="visibleSteps==2" mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+  <mat-step *ngIf="visibleSteps >= 3">
+    <ng-container *ngTemplateOutlet="stepDirective3"></ng-container>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button *ngIf="visibleSteps!=3" mat-button matStepperNext>Next</button>
+      <button *ngIf="visibleSteps==3" mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+  <mat-step *ngIf="visibleSteps >= 4">
+    <ng-container *ngTemplateOutlet="stepDirective4"></ng-container>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button *ngIf="visibleSteps!=4" mat-button matStepperNext>Next</button>
+      <button *ngIf="visibleSteps==4" mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+  <mat-step *ngIf="visibleSteps >= 5">
+    <ng-container *ngTemplateOutlet="stepDirective5"></ng-container>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button *ngIf="visibleSteps!=5" mat-button matStepperNext>Next</button>
+      <button *ngIf="visibleSteps==5" mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+<mat-vertical-stepper #verticalStepper [linear]=true [style.display]="isDesktop?'none':'inherit'">
+  <mat-step *ngIf="visibleSteps >= 1">
+    <ng-container *ngTemplateOutlet="stepDirective1"></ng-container>
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step *ngIf="visibleSteps >= 2">
+    <ng-container *ngTemplateOutlet="stepDirective2"></ng-container>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button *ngIf="visibleSteps!=2" mat-button matStepperNext>Next</button>
+      <button *ngIf="visibleSteps==2" mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+  <mat-step *ngIf="visibleSteps >= 3">
+    <ng-container *ngTemplateOutlet="stepDirective3"></ng-container>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button *ngIf="visibleSteps!=3" mat-button matStepperNext>Next</button>
+      <button *ngIf="visibleSteps==3" mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+  <mat-step *ngIf="visibleSteps >= 4">
+    <ng-container *ngTemplateOutlet="stepDirective4"></ng-container>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button *ngIf="visibleSteps!=4" mat-button matStepperNext>Next</button>
+      <button *ngIf="visibleSteps==4" mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+  <mat-step *ngIf="visibleSteps >= 5">
+    <ng-container *ngTemplateOutlet="stepDirective5"></ng-container>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button *ngIf="visibleSteps!=5" mat-button matStepperNext>Next</button>
+      <button *ngIf="visibleSteps==5" mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

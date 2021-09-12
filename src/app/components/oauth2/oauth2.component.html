@@ -1,0 +1,155 @@
+<h1>OAuth2 Authentication Example</h1>
+<p>
+  This page shows the steps for authenticating with oauth2 authentication.  It uses imgur as the <b>authentication server</b>
+  and the <b>resource server</b>.  For further information go to <a href="https://api.imgur.com/oauth2">
+    https://api.imgur.com/oauth2
+  </a> use a real example.  The example tries to authenticate to imgur.
+</p>
+<p>
+  This example shows the steps that need to be followed in the flow of oauth2 authentication.  The authentication depends
+  on the grant type which is set by the
+</p>
+
+<ol type="1">
+  <li>
+    <h2>Registration</h2>
+    <p>
+      Each client must register their <b>application</b> and receive the <b>client_id</b> and <b>client_secret</b>.
+    </p>
+    <p>
+      For public read-only and anonymous resources, such as getting image info, looking up user
+      comments, etc. all you need to do is send an authorization header with your client_id in your
+      requests. This also works if you'd like to upload images anonymously (without the image being tied to an account),
+      or if you'd like to create an anonymous album. This lets us know which application is accessing the API.
+
+      Authorization: Client-ID YOUR_CLIENT_ID
+
+      If your app is not only requesting public read-only information, then continue reading.
+    </p>
+  </li>
+  <li>
+    <h2>Authorization</h2>
+    <h3>Test</h3>
+    <table>
+      <tr>
+        <td>Pin Response Type</td>
+        <td>Authorize endpoint url: <input type="text" [(ngModel)]="authorizeEndpoint" /></td>
+        <td><button (click)="GeneratePinUrl()">Generate Url</button></td>
+        <td>clientid: <input type="text" [(ngModel)]="clientid" /></td>
+        <td><button (click)="OpenPinAuthForm()">Open Authorization Form</button></td>
+        <td>{{pinUrl}}</td>
+      </tr>
+      <tr>
+        <td>Authorization Code Response Type</td>
+        <td>Authorize endpoint url: <input type="text" [(ngModel)]="authorizeEndpoint2" /></td>
+        <td><button (click)="GenerateACUrl()">Generate Url</button></td>
+        <td>clientid: <input type="text" [(ngModel)]="clientid2" /></td>
+        <td>clientSecret: <input type="text" [(ngModel)]="clientSecret2" /></td>
+        <td><button (click)="OpenACAuthForm()">Open Authorization Form</button></td>
+        <td>{{acUrl}}</td>
+      </tr>
+    </table>
+    
+    <p>
+      To access a user's account, the user must first authorize your application so that you can get an access token.
+      Requesting an access token is fairly straightforward: point a browser (pop-up, or full page redirect if needed)
+      to a URL and include a set of query string parameters.
+    </p>
+    <div class="example">
+      https://api.imgur.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&response_type=REQUESTED_RESPONSE_TYPE&state=APPLICATION_STATE
+    </div>
+    <p>
+      The user will now be able to enter their password and accept that they'd like to use your application.
+      Once this happens, they will be redirected to your redirect URL (that you entered during registration)
+      with the access token. You can now send the access token in the headers to access their account information.
+    </p>
+    <h3>Forming the authorization URL</h3>
+    <table>
+      <tbody>
+        <tr class="header">
+          <td width="150">Parameter</td>
+          <td>Values</td>
+          <td>Description</td>
+        </tr>
+        <tr>
+          <td>response_type</td>
+          <td><span class="code">code</span>, <span class="code">token</span>, or <span class="code">pin</span></td>
+          <td>
+            Determines if Imgur returns an
+            authorization_code, a PIN code, or an opaque
+            access_token. If you choose code, then you must
+            immediately exchange the authorization_code for
+            an access_token. If you chose token, then the
+            access_token and refresh_token will be given to
+            you in the form of query string parameters
+            attached to your redirect URL, which the user
+            may be able to read. If you chose pin, then the
+            user will receive a PIN code that they will
+            enter into your app to complete the
+            authorization process.
+          </td>
+        </tr>
+        <tr>
+          <td>client_id</td>
+          <td>the Client ID you recieved from <a href="https://api.imgur.com/oauth2/addclient">registration</a></td>
+          <td>Indicates the client that is making the request.</td>
+        </tr>
+        <tr>
+          <td>state</td>
+          <td>any string</td>
+          <td>
+            This optional parameter indicates any state which
+            may be useful to your application upon receipt of
+            the response. Imgur round-trips this parameter, so
+            your application receives the same value it sent.
+            Possible uses include redirecting the user to the
+            correct resource in your site, nonces, and
+            cross-site-request-forgery mitigations.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      The value of this parameter determines which OAuth 2.0 flow will be used and impacts the processing your application
+      will need to perform.
+
+      token: is typically used for JavaScript applications. It will directly return the access_token and refresh_token to
+      the redirect URL you specified during registration, in the form of hash query string parameters.
+      Example:
+    </p>
+    <div class="example">
+      http://example.com#access_token=ACCESS_TOKEN&token_type=Bearer&expires_in=3600
+    </div>
+    <p>
+      pin: is typically used for desktop or server side applications. After the user authorizes, they will receive a PIN
+      code that they copy into your app. Your app will then exchange the PIN code for the access_token and refresh_token.
+      Use this response_type if you can't use a redirect URL or if you specified "desktop" during registration.
+
+      You exchange the PIN code for the tokens by making the following request:
+    </p>
+    <p></p>
+  </li>
+  <li></li>
+</ol>
+
+
+4f070c21ff09232
+<a href="https://api.imgur.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&response_type=REQUESTED_RESPONSE_TYPE&state=APPLICATION_STATE">
+  https://api.imgur.com/oauth2/authorize?client_id=4f070c21ff09232&response_type=REQUESTED_RESPONSE_TYPE&state=APPLICATION_STATE
+</a>
+
+To access a user's account, the user must first authorize your application so that you can get an access token.
+Requesting an access token is fairly straightforward: point a browser (pop-up, or full page redirect if needed) to a
+URL and include a set of query string parameters.
+
+https://api.imgur.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&response_type=REQUESTED_RESPONSE_TYPE&state=APPLICATION_STATE
+
+The user will now be able to enter their password and accept that they'd like to use your application. Once this happens,
+they will be redirected to your redirect URL (that you entered during registration) with the access token. You can now
+send the access token in the headers to access their account information.
+
+<h2>Handling the Authorization Response</h2>
+<h2>Send API Requests</h2>
+Finally, after obtaining your access_token, you make your API requests by sending the Authorization header as such:
+
+Authorization: Bearer YOUR_ACCESS_TOKEN

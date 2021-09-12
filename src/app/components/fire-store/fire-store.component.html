@@ -1,0 +1,65 @@
+<h1>Firestore Database</h1>
+<ul>
+  <li>
+    <h2 id="saveSchool">Get teachers LIVE</h2>
+    <p>Show how to create queries that do live update or not</p>
+    <span class="example">return this.getQueryableCollection(query).snapshotChanges()...</span>
+    <button (click)="getTeachersLiveWithSnapshot()">Gets teachers live with metadata </button> <br />
+    <span class="example">return this.getQueryableCollection(query).valueChanges(); </span>
+    <button (click)="getTeachersLive()">Gets teachers live with NO metadata</button> <br />
+    <span class="example">subscription.unsubscribe();</span>
+    <button (click)="getTeachers()">Gets teachers</button> <br />
+  </li>
+  <li>
+    <h2 id="getbyid">Getting Teacher by id</h2>
+    <input [(ngModel)]="schoolSearchId" />
+    <button (click)="getTeacher()">Get a Teacher</button>
+  </li>
+  <li>
+    <h2>Joinning School and Teachers collections</h2>
+    <p>
+      In this example the schools are joined with teachers. noticed that the caller is responsible for calling schools list and
+      also calling the getTeachers method. This is best practice as it allows for lazy loading if wished.
+    </p>
+    <button (click)="joinTeacherAndStudents()">Join Schools and Teachers</button>
+    <table *ngFor="let school of schools">
+      <tr *ngFor="let teacher of school.teachers">
+        <td>{{school.name}}</td>
+        <td>{{teacher.firstName}}</td>
+        <td>{{teacher.school?.id}}</td>
+      </tr>
+    </table>
+  </li>
+  <li>
+    <h2>Saving Schools and Teachers collections in a transaction</h2>
+    <p>
+      When saving a school with its teachers, you need to save the data in
+      2 collections.  Since one can fail and the other not, you need to ensure that
+      the save happens in a transaction
+    </p>
+    <button (click)="saveSchoolAndTeachersWithBatch()">Save a Teacher and its students using TRANSACTION Batch write</button><br />
+    <button (click)="saveSchoolAndTeachersInTransWithTrans()">Save a Teacher and its students using TRANSACTION Transaction write</button>
+  </li>
+  <li>
+    <h2 id="saveSchool">Saving a Teachers</h2>
+    Id <br />
+    <input [(ngModel)]="teacher.id" *ngIf="teacher"/> <br />
+    First name <br />
+    <input [(ngModel)]="teacher.firstName" *ngIf="teacher"/> <br />
+    Last Name <br />
+    <input [(ngModel)]="teacher.lastName" *ngIf="teacher"/> <br />
+    School Id <br />
+    <input [(ngModel)]="teacher.school.id" *ngIf="teacher"/> <br />
+    <button (click)="saveATeacher()">Save a Teacher</button> <br />
+  </li>
+  <li>
+    <h2 id="deleteSchool">Delete a school</h2>
+    <p>Delete a school.</p>
+    Id <br />
+    <input [(ngModel)]="school.id" *ngIf="school" /> <br />
+    <input [(ngModel)]="school.name" *ngIf="school" /> <br />
+    <button (click)="DeleteSchool()">Delete</button>
+  </li>
+</ul>
+
+

@@ -1,0 +1,40 @@
+<h1>Rxjs Operators</h1>
+
+<p style="padding-left:300px;font-weight:bold;font-size: 50px">Observable Basics</p>
+<ul>
+  <li>
+    <hr />
+    <b>Observable Data </b>
+    <div style="border: 3px;padding-left:150px;text-align:left" *ngFor="let f of fruits"> {{ f | uppercase }}</div>
+    <hr>
+    <div *ngIf='anyErrors' style="border: 3px;padding-left:0px">
+      <b>Error Status :</b>
+      {{anyErrors==true? 'Error occured' : 'It All Good'}}
+      <hr>
+    </div>
+    <div style="border: 3px;padding-left:0px"> <b> completion status : </b> {{ finished==true ? 'Observer completed ': '' }}</div>
+    <hr>
+    <button style="margin-top: 2rem;" (click)="start()">Start Emitting</button>
+    <button style="margin-top: 2rem;" (click)="startWithService()">Start Emitting using service</button>
+    <hr>
+
+
+  </li>
+  <li>
+    <h2>test</h2>
+      <input id="inputnumber">
+      <div>
+        Square of the number is: <b>{{squaredata}}</b>
+      </div>
+  </li>
+  <li>
+    <h2>get contact</h2>
+    <button style="margin-top: 2rem;" (click)="getContact()">getContact</button>
+    <button style="margin-top: 2rem;" (click)="getAddress()">getAddress</button><br />
+    <button style="margin-top: 2rem;" (click)="getContactAndAddress()">getContactAndAddress</button><br />
+    first name: {{contact?.FirstName}} <br />
+    address: {{contact?.Address?.Name}} <br />
+
+  </li>
+</ul>
+
