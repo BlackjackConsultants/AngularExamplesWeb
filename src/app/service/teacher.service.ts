@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, QueryFn, DocumentChangeAction, CollectionReference } from 'angularfire2/firestore';
+// import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, QueryFn, DocumentChangeAction, CollectionReference } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { Teacher } from '../models/teacher';
 import { map } from 'rxjs/internal/operators/map';
 import { School } from '../models/school';
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeacherService {
-  teacherCollectionRef!: AngularFirestoreCollection<Teacher>;
+  teacherCollectionRef!: any;
   teachersObservable!: Observable<Teacher[]>;
-  teacherDoc!: AngularFirestoreDocument<Teacher>;
+  teacherDoc!: any;
+  public afs: any
 
-  constructor(public afs: AngularFirestore) { }
+  constructor() { }
 
   getTeachers(): Observable<Teacher[]> {
     return this.getQueryableCollection().valueChanges();
@@ -25,7 +26,7 @@ export class TeacherService {
    * be static. do in future changes.
    */
   getTeachersBySchool(schoolId: string | undefined): Observable<Teacher[]> {
-    let query: QueryFn = ref => ref.where('schoolId', '==', schoolId);
+    let query: any = ref => ref.where('schoolId', '==', schoolId);
     return this.getQueryableCollection(query).valueChanges();
   }
 
@@ -34,8 +35,8 @@ export class TeacherService {
    * be static. do in future changes.
    */
   getTeachersBySchoolWithMetadata(schoolId: string | undefined): Observable<Teacher[]> {
-    let query: QueryFn = ref => ref.where('schoolId', '==', schoolId);
-    this.teachersObservable = this.getQueryableCollection(query).snapshotChanges().pipe(map(actions => actions.map(doc => {
+    let query: any = ref => ref.where('schoolId', '==', schoolId);
+    this.teachersObservable = this.getQueryableCollection(query).snapshotChanges().pipe(map(actions => (actions as any).map(doc => {
       let data = doc.payload.doc.data();
       return data;
     })));
@@ -91,7 +92,7 @@ export class TeacherService {
   /*
    * updates a teacher that is inside a transaction. 
    */
-  updateWithTransaction(teacher: Teacher, transaction: firebase.firestore.Transaction) {
+  updateWithTransaction(teacher: Teacher, transaction: any) {
     if (!teacher.id) 
       teacher.id = this.afs.createId();
     let docRef = this.getCollection().doc(teacher.id);
@@ -106,7 +107,7 @@ export class TeacherService {
   /*
    * get collection for queries
    */
-  getQueryableCollection(query?: QueryFn): AngularFirestoreCollection<Teacher> {
+  getQueryableCollection(query?: any): any {
     if (query) {
       return this.afs.collection('teachers', query);
     }
@@ -116,7 +117,7 @@ export class TeacherService {
   /*
    * get collection for saving
    */
-  getCollection(): CollectionReference {
+  getCollection(): any {
     return this.afs.firestore.collection('teachers')
   }
 }

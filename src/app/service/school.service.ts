@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { School } from '../models/school';
 import { Observable } from 'rxjs';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, QueryFn, DocumentChangeAction, CollectionReference } from 'angularfire2/firestore';
+// import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, QueryFn, DocumentChangeAction, CollectionReference } from 'angularfire2/firestore';
 import { map } from 'rxjs/internal/operators/map';
 import { TeacherService } from './teacher.service';
 import { Teacher } from '../models/teacher';
@@ -12,19 +12,19 @@ import { DateService } from './date.service';
 })
 export class SchoolService {
 
-  schoolCollectionRef!: AngularFirestoreCollection<School>;
+  schoolCollectionRef!: any;
   schoolsObs!: Observable<School[]>;
   schoolObs!: Observable<School>;
 
-  constructor(public afs: AngularFirestore,
-    private dateService: DateService,
-    private teacherService: TeacherService) { }
+  public afs: any;
+  dateService!: DateService;
+  teacherService!: TeacherService;
 
   /*
    * Returns an observable that streams live school list. Note, this functionality can
    * be static. do in future changes.
    */
-  getSchools(ref?: QueryFn): Observable<School[]> {
+  getSchools(ref?: any): Observable<School[]> {
     return this.getQueryableCollection(ref).valueChanges();
   }
 
@@ -120,7 +120,7 @@ export class SchoolService {
   /*
    * get collection for queries
    */
-  getQueryableCollection(query?: QueryFn | undefined): AngularFirestoreCollection<School> {
+  getQueryableCollection(query?: any | undefined): any {
     if (query) {
       return this.afs.collection('schools', query);
     }
@@ -130,7 +130,7 @@ export class SchoolService {
   /*
    * get collection for saving. CRUD operations. You can get by id.
    */
-  getCollection(): CollectionReference {
+  getCollection(): any {
     return this.afs.firestore.collection('schools')
   }
 }

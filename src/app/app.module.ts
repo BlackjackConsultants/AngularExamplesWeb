@@ -8,7 +8,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {MatRadioModule} from '@angular/material/radio';
-// import { MatButtonModule, MatRadioModule, MatSelectModule, TooltipComponent } from '@angular/material';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatListModule } from '@angular/material/list';
@@ -50,11 +49,11 @@ import { LodashComponent } from './components/lodash/lodash.component';
 import { FireStoreComponent } from './components/fire-store/fire-store.component';
 import { RestApiComponent } from './components/rest-api/rest-api.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
-import { AngularFirestore } from 'angularfire2/firestore';
 import { TeacherService } from './service/teacher.service';
 import { SchoolService } from './service/school.service';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+// import { AngularFirestore } from 'angularfire2/firestore';
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { SampleComponentComponent } from './components/sample-component/sample-component.component';
 import { DialogComponent } from './components/dialog/dialog.component';
@@ -147,8 +146,8 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     MatTableModule,
     MatCheckboxModule,
-    AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
-    AngularFirestoreModule,
+    // AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
+    // AngularFirestoreModule,
     MatDialogModule,
     CdkStepperModule,
     CdkTableModule,
@@ -159,7 +158,7 @@ import { MatButtonModule } from '@angular/material/button';
   exports: [
     SideNavComponent, MatSelectModule, MatRadioModule
   ],
-  providers: [MessagingService, ContactService, AngularFirestore, TeacherService, SchoolService],
+  providers: [MessagingService, ContactService, TeacherService, SchoolService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [ResponsiveStepperComponent, DialogComponent],
   bootstrap: [AppComponent]
