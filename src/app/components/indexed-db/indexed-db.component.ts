@@ -152,12 +152,12 @@ export class IndexedDbComponent {
     this.contacts.forEach(contact => {
       const request = store?.add(contact);
       if (request) {
-           request.onsuccess = function (event) {
-        console.log(`successfully added ${contact.FirstName}, ${contact.LastName}`);
-      };
-      request.onerror = function (event) {
-        console.log(`error`);
-      };   
+        request.onsuccess = function (event) {
+          console.log(`successfully added ${contact.FirstName}, ${contact.LastName}`);
+        };
+        request.onerror = function (event) {
+          console.log(`error`);
+        };
       }
     });
   }
