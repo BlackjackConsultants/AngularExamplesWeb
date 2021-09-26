@@ -170,9 +170,9 @@ export class TypescriptComponent implements OnInit {
   }
 
   getEnumFromString() {
-    let temp = 'business';
-    let temp2 = temp as keyof typeof addressTypeEnum;;
-    this.adressType = addressTypeEnum[temp2]
+    let tempStr = 'business';
+    let tempInt = tempStr as keyof typeof addressTypeEnum;;
+    this.adressType = addressTypeEnum[tempInt]
   }
 
   /**
