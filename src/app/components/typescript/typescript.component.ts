@@ -6,6 +6,12 @@ import { Perimeter } from '../../models/area';
 import { AsyncService } from '../../service/async.service';
 import { AnimalEnum } from 'src/app/enums/AnimalEnum';
 
+// if you want to create enum in same class file, it needs to be outside the class. add export if used in other files
+enum addressTypeEnum {
+  home,
+  business
+};
+
 @Component({
   selector: 'app-typescript',
   templateUrl: './typescript.component.html',
@@ -17,8 +23,11 @@ export class TypescriptComponent implements OnInit {
   perimeter!: number;
   perimeter2!: number;
   perimeter4!: number;
+  adressType!: addressTypeEnum;
 
-  constructor() { }
+  constructor() {
+    this.adressType = addressTypeEnum.home;
+  }
 
   ngOnInit() {
     // using static method
@@ -158,6 +167,12 @@ export class TypescriptComponent implements OnInit {
     const sentence = `Hello, my name is ${fullName}.`;
     // tslint:disable-next-line: no-console
     console.debug(sentence);
+  }
+
+  getEnumFromString() {
+    let temp = 'business';
+    let temp2 = temp as keyof typeof addressTypeEnum;;
+    this.adressType = addressTypeEnum[temp2]
   }
 
   /**

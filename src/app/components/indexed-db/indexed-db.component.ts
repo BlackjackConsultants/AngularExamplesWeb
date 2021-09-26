@@ -109,6 +109,24 @@ export class IndexedDbComponent {
     }
   }
 
+  GetContactById() {
+    if (this.db == null) {
+      alert('click on open db first');
+    } else {
+      const tx = this.db.transaction(['Contact'], 'readwrite');
+      const store = tx.objectStore('Contact');
+      const request = store.get('1');
+      request.onsuccess = (event) => {
+        const contact = (event?.target as any)?.source;
+        if (contact != null) {
+          console.log(`contact ${contact.FirstName}, ${contact.LastName}`);
+        } else {
+          console.log(`no contacts found. click on insert button to add them to db`);
+        }
+      };
+    }
+  }
+
   /**
    * updates a contact.
    */
