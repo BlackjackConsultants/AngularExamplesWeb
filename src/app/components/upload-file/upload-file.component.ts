@@ -19,10 +19,18 @@ export class UploadFileComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleFileInput(target: any) {
+  handleFileInput(event: any) {
     // todo: this function was changed on upgrade to 12
-    let files = target;
+    let files = event.target.files;
     this.fileToUpload = files?.item(0) as File;
+    let output = document.getElementById('output'); // note this is not angular way to work with html
+    if (output != null) {
+      (output as any).src = URL.createObjectURL(files[0]);
+      output.onload = function() {
+        URL.revokeObjectURL((output as any).src) // free memory
+      }
+    }
+
   }
 
   upload() {

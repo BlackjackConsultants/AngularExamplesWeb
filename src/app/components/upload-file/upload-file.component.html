@@ -11,6 +11,7 @@
       <label for="file">Choose File</label>
       <input type="file" id="file" [(ngModel)]="files "
              (change)="handleFileInput($event)">
+             <img id="output">
     </div>
     <br/>
     <button (upload)="upload()">Send File</button>
