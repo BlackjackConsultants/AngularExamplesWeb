@@ -172,7 +172,7 @@ export class IndexedDbComponent {
       if (request) {
         request.onsuccess = function (event) {
           // note: the id is hte only thing that returns from event. the rest you get from the object you saved.
-          console.log(`successfully added contact with id: ${(event?.currentTarget as any).result}, first name: ${contact.FirstName}, lastname ${contact.LastName}`);
+          console.log(`successfully added contact with id: ${(event?.currentTarget as any).result}, first name: ${contact.FirstName}, last name: ${contact.LastName}`);
         };
         request.onerror = function (event) {
           console.log(`error`);
