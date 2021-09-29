@@ -171,7 +171,8 @@ export class IndexedDbComponent {
       const request = store?.add(contact);
       if (request) {
         request.onsuccess = function (event) {
-          console.log(`successfully added ${contact.FirstName}, ${contact.LastName}`);
+          // note: the id is hte only thing that returns from event. the rest you get from the object you saved.
+          console.log(`successfully added contact with id: ${(event?.currentTarget as any).result}, first name: ${contact.FirstName}, lastname ${contact.LastName}`);
         };
         request.onerror = function (event) {
           console.log(`error`);
