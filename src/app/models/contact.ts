@@ -6,6 +6,8 @@ export class Contact {
     this.FirstName = contact?.firstName;
     this.LastName = contact?.LastName;
     this.alias = contact?.email;
+    this.Phones = [];
+    this.Addresses = [];
   }
   BirthDay?: Date;
   Occupation?: string;

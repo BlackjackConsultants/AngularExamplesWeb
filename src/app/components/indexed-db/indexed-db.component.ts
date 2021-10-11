@@ -14,12 +14,18 @@ export class IndexedDbComponent {
   occupationIndex!: IDBIndex;
 
   constructor() {
-    this.contacts.push({ FirstName: 'Jorge', LastName: 'Perez', Occupation: 'programmer' });
-    this.contacts.push({ FirstName: 'Lucrecia', LastName: 'Enriquez', Occupation: 'teacher' });
-    this.contacts.push({ FirstName: 'Melissa', LastName: 'Munoz', Occupation: 'teacher' });
-    this.contacts.push({ FirstName: 'Andre', LastName: 'Enriquez', Occupation: 'programmer' });
-    this.contacts.push({ FirstName: 'Alex', LastName: 'Enriquez', Occupation: 'Finance Analyst' });
-    this.contacts.push({ FirstName: 'Adriam', LastName: 'Enriquez', Occupation: 'programmer' });
+    this.contacts.push({ FirstName: 'Jorge', LastName: 'Perez', Occupation: 'programmer', Phones: [] });
+    this.contacts.push({ FirstName: 'Lucrecia', LastName: 'Enriquez', Occupation: 'teacher', Phones: [] });
+    this.contacts.push({ FirstName: 'Melissa', LastName: 'Munoz', Occupation: 'teacher', Phones: [] });
+    this.contacts.push({ FirstName: 'Andre', LastName: 'Enriquez', Occupation: 'programmer', Phones: [] });
+    this.contacts.push({ FirstName: 'Alex', LastName: 'Enriquez', Occupation: 'Finance Analyst', Phones: [] });
+    this.contacts.push({ FirstName: 'Adriam', LastName: 'Enriquez', Occupation: 'programmer', Phones: [] });
+
+    this.contacts[0].Phones?.push({number: '3053033333', type: 'home'});
+    this.contacts[1].Phones?.push({number: '3053022222', type: 'home'});
+    this.contacts[2].Phones?.push({number: '3053011111', type: 'home'});
+    this.contacts[3].Phones?.push({number: '3053044444', type: 'home'});
+    this.contacts[4].Phones?.push({number: '3053055555', type: 'home'});
   }
 
   /**
@@ -164,6 +170,10 @@ export class IndexedDbComponent {
 
 
   }
+
+  /**
+   * inserts a contact
+   */
   InsertContact() {
     const tx = this?.db?.transaction(['Contact'], 'readwrite');
     const store = tx?.objectStore('Contact');

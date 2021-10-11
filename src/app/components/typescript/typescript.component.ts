@@ -199,14 +199,48 @@ export class TypescriptComponent implements OnInit {
     const contact: Contact = JSON.parse(contactJson);
     console.log(`First Name: ${contact.FirstName}, Last Name: ${contact.LastName}`);
     const test = contact as Contact ?? new Contact();
-    // try {
-    //   // this wont work
-    //   if (test) {
-    //     test.createFileAs();
-    //   }
-    // } catch {}
+  }
 
-    // const test2 = new Contact(contact);
-    // test2.createFileAs();
+  dateFunctions() {
+    const leftOparandDate = new Date(2021, 9, 3);
+    const rightOparandDate = new Date(2021, 9, 17);
+    const result = this.calculateDiff(leftOparandDate, rightOparandDate);
+    console.log(`Difference in days between: ${leftOparandDate} - ${rightOparandDate} = ${result} days`);
+    const result2 = this.addDays(leftOparandDate, 14);
+    console.log(`Add 14 days: ${leftOparandDate} = ${result2} days`);
+    const result3 = this.subtractDays(leftOparandDate, 14);
+    console.log(`Subtract 14 days: ${leftOparandDate} = ${result3} days`);
+
+  }
+
+  /**
+   * returns a number of days difference between the 2
+   * @param leftOperand 
+   * @param rightOperand 
+   * @returns 
+   */
+  calculateDiff(leftOperand, rightOperand): number {
+    rightOperand = new Date(rightOperand);
+    return Math.floor((Date.UTC(leftOperand.getFullYear(), leftOperand.getMonth(), leftOperand.getDate()) - Date.UTC(rightOperand.getFullYear(), rightOperand.getMonth(), rightOperand.getDate())) / (1000 * 60 * 60 * 24));
+  }
+
+  /**
+   * returns the date type after days are subtracted from date parameter
+   * @param date 
+   * @param days 
+   * @returns 
+   */
+  subtractDays(date: Date, days: number) {
+    return new Date(date.getTime() - (1000 * 60 * 60 * 24) * days);
+  }
+
+  /**
+   * returns the date type after days are adds from date parameter
+   * @param date 
+   * @param days 
+   * @returns 
+   */
+  addDays(date: Date, days: number): Date {
+    return new Date(date.getTime() + (1000 * 60 * 60 * 24) * days);
   }
 }
