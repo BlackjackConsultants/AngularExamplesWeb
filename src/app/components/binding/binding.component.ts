@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, SecurityContext } from '@angular/core';
 import { AnimalEnum } from 'src/app/enums/AnimalEnum';
 import { Occupation } from 'src/app/models/occupation';
+import { DomSanitizer } from '@angular/platform-browser';
 
 enum AgentStatus {
     available = 1 ,
@@ -41,7 +42,13 @@ export class BindingComponent implements OnInit {
     this._twoWayBind = val;
   }
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
+
+  get name(): string {
+    const retVal = this.sanitizer.sanitize(SecurityContext.HTML, 'jorge & perez') as string;
+    return retVal;
+  }
+
 
   ngOnInit() {
     this.animal = AnimalEnum.None;
