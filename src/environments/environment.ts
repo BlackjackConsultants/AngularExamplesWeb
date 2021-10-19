@@ -5,9 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-      apiKey: "AIzaSyA78yTwzMLZn8kQ8D7BjHnpqCu-y8KSUOQ",
       authDomain: "angularexamplesweb-3feda.firebaseapp.com",
-      databaseURL: "https://angularexamplesweb-3feda.firebaseio.com",
       projectId: "angularexamplesweb-3feda",
       storageBucket: "angularexamplesweb-3feda.appspot.com",
       messagingSenderId: "1002040909502",
