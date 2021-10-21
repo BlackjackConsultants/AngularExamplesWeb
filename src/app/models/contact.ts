@@ -4,7 +4,7 @@ import { Address } from 'src/app/models/address';
 export class Contact {
   constructor(contact?: any) {
     this.FirstName = contact?.firstName;
-    this.LastName = contact?.LastName;
+    this.LastName = contact?.lastName;
     this.alias = contact?.email;
     this.Phones = [];
     this.Addresses = [];

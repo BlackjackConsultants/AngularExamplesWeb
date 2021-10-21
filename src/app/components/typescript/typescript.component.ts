@@ -243,4 +243,13 @@ export class TypescriptComponent implements OnInit {
   addDays(date: Date, days: number): Date {
     return new Date(date.getTime() + (1000 * 60 * 60 * 24) * days);
   }
+
+  typeOfExample() {
+    // this wont work for complex types, only string, number, etc
+    let contact: Contact = new Contact({firstName: 'jorge', lastName: 'perez'});
+    let test = typeof contact;
+    // this does work.
+    console.log(contact instanceof Contact); //Prints true;
+    debugger;
+  }
 }
