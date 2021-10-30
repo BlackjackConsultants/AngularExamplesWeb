@@ -25,6 +25,9 @@
             <button mat-button matStepperNext>Next</button>
           </div>
         </mat-step>
+        <ng-template matStepperIcon="number" let-index="index">
+            <mat-icon>{{index === 0 ? 'perm_contact_calendar' : index === 1 ? 'group' : 'done'}}</mat-icon>
+        </ng-template>
       </mat-horizontal-stepper>
     </li>
     <li>
