@@ -1,8 +1,36 @@
 <div>
   <ul>
+    <!--mat-stepper-->
+    <li>
+      <h2>mat-horizontal-stepper</h2>
+      <mat-horizontal-stepper linear="isLinear" #stepper>
+        <mat-step label="Upload">
+          testing
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Map">
+          this
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Results">
+          thing
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </li>
     <li>
       <h2>mat-buttons</h2>
-      <p>Showing how to make a button with image and text. The first one uses google material icons and the second one uses my custom icon.</p>
+      <p>Showing how to make a button with image and text. The first one uses google material icons and the second one
+        uses my custom icon.</p>
       <!--mat-button-->
       <button mat-button class="poc-icon-button" routerLink="/home">
         <mat-icon>home</mat-icon>
@@ -47,9 +75,7 @@
     <li>
       <h2>mat-selection-list</h2>
       <mat-selection-list #list [(ngModel)]="selectedOptions" (selectionChange)="handleSelection($event)">
-        <mat-list-option *ngFor="let filter of filterOptions"
-                         [value]="filter.value"
-                         [selected]='filter.selected'>
+        <mat-list-option *ngFor="let filter of filterOptions" [value]="filter.value" [selected]='filter.selected'>
           <span>
             {{filter.text}}
           </span>
@@ -75,21 +101,6 @@
     <li>
       <h2>mat-checkbox</h2>
       <mat-checkbox [indeterminate]="false" [(ngModel)]="isPrivate">isPrivate</mat-checkbox>
-    </li>
-    <!--mat-stepper-->
-    <li>
-      <h2>mat-horizontal-stepper</h2>
-      <mat-horizontal-stepper linear="isLinear" #stepper>
-        <mat-step label="Upload">
-          testing
-        </mat-step>
-        <mat-step label="Map">
-          this
-        </mat-step>
-        <mat-step label="Results">
-          thing
-        </mat-step>
-      </mat-horizontal-stepper>
     </li>
     <!--mat dialog-->
     <li>
