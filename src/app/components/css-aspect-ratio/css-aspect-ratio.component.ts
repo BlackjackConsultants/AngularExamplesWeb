@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Renderer2 } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { HostListener } from '@angular/core';
-declare var $: any;
+// declare var $: any;
 
 @Component({
   selector: 'app-css-aspect-ratio',
@@ -40,10 +40,10 @@ export class CssAspectRatioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.el = $("#very-specific-design");
+    // this.el = $("#very-specific-design");
     this.elHeight = this.el.outerHeight();
     this.elWidth = this.el.outerWidth();
-    this.wrapper = $("#scaleable-wrapper");
+    // this.wrapper = $("#scaleable-wrapper");
 
     this.doResize(null, this.getStarterData());
   }

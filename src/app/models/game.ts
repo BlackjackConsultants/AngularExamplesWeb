@@ -23,15 +23,6 @@ export class Game {
     }
 
     /**
-     * initialize
-     */
-    initialize() {
-        // this.settings.setValue(GlobalConstants.InitialBet, 10)
-        // this.create();
-        // this.shuffle();
-    }
-
-    /**
      * starts simulation a blackjack game
      */
     start() {
@@ -40,6 +31,7 @@ export class Game {
             const player = this.players[i];
             player.Play();
         }
+        this.player.Play();
     }
 
     /**

@@ -1,25 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CssAspectRatioComponent } from './css-aspect-ratio.component';
+// import { CssAspectRatioComponent } from './css-aspect-ratio.component';
 
-describe('CssAspectRatioComponent', () => {
-  let component: CssAspectRatioComponent;
-  let fixture: ComponentFixture<CssAspectRatioComponent>;
+// describe('CssAspectRatioComponent', () => {
+//   let component: CssAspectRatioComponent;
+//   let fixture: ComponentFixture<CssAspectRatioComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CssAspectRatioComponent ]
-    })
-    .compileComponents();
-  }));
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [ CssAspectRatioComponent ]
+//     })
+//     .compileComponents();
+//   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CssAspectRatioComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(CssAspectRatioComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
