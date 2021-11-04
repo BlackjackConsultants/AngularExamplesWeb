@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { AnimtationSpritesComponent } from './animation-sprites.component';
+import { AnimtationSpritesComponent } from '../animation-sprites/animation-sprites.component';
 
 describe('AnimtationSpritesComponent', () => {
   let component: AnimtationSpritesComponent;

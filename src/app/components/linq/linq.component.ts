@@ -7,8 +7,8 @@ import { Contact } from 'src/app/models/contact';
   styleUrls: ['./linq.component.css']
 })
 export class LinqComponent implements OnInit {
-  contacts1: Contact[];
-  foundContact: Contact;
+  contacts1!: Contact[];
+  foundContact!: Contact;
 
   constructor() { }
 

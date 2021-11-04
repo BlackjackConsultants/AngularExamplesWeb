@@ -41,12 +41,12 @@ export class OAuth2Component implements OnInit {
     window.open(this.acUrl);
   }
 
-  pinUrl: string;
-  acUrl: string;
-  clientid: string;
-  clientid2: string;
-  clientSecret2: string;
-  authorizeEndpoint: string;
-  authorizeEndpoint2: string;
+  pinUrl!: string;
+  acUrl!: string;
+  clientid!: string;
+  clientid2!: string;
+  clientSecret2!: string;
+  authorizeEndpoint!: string;
+  authorizeEndpoint2!: string;
 
 }
