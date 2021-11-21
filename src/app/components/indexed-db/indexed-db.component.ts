@@ -14,12 +14,12 @@ export class IndexedDbComponent {
   occupationIndex!: IDBIndex;
 
   constructor() {
-    this.contacts.push({ FirstName: 'Jorge', LastName: 'Perez', Occupation: 'programmer', Phones: [] });
-    this.contacts.push({ FirstName: 'Lucrecia', LastName: 'Enriquez', Occupation: 'teacher', Phones: [] });
-    this.contacts.push({ FirstName: 'Melissa', LastName: 'Munoz', Occupation: 'teacher', Phones: [] });
-    this.contacts.push({ FirstName: 'Andre', LastName: 'Enriquez', Occupation: 'programmer', Phones: [] });
-    this.contacts.push({ FirstName: 'Alex', LastName: 'Enriquez', Occupation: 'Finance Analyst', Phones: [] });
-    this.contacts.push({ FirstName: 'Adriam', LastName: 'Enriquez', Occupation: 'programmer', Phones: [] });
+    new Contact()
+    this.contacts.push(new Contact({ FirstName: 'Lucrecia', LastName: 'Enriquez', Occupation: 'teacher', Phones: [] }));
+    this.contacts.push(new Contact({ FirstName: 'Melissa', LastName: 'Munoz', Occupation: 'teacher', Phones: [] }));
+    this.contacts.push(new Contact({ FirstName: 'Andre', LastName: 'Enriquez', Occupation: 'programmer', Phones: [] }));
+    this.contacts.push(new Contact({ FirstName: 'Alex', LastName: 'Enriquez', Occupation: 'Finance Analyst', Phones: [] }));
+    this.contacts.push(new Contact({ FirstName: 'Adriam', LastName: 'Enriquez', Occupation: 'programmer', Phones: [] }));
 
     this.contacts[0].Phones?.push({number: '3053033333', type: 'home'});
     this.contacts[1].Phones?.push({number: '3053022222', type: 'home'});

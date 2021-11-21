@@ -252,4 +252,12 @@ export class TypescriptComponent implements OnInit {
     console.log(contact instanceof Contact); //Prints true;
     debugger;
   }
+
+  objectEvents() {
+    let contact = new Contact();
+    contact.addEventListener('complete', () => {
+      alert('done!!!');
+    });
+    contact.start();
+  }
 }

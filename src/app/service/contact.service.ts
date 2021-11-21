@@ -68,8 +68,8 @@ export class ContactService {
     this.contactsObs = new Observable<Contact[]>(observer => {
       setTimeout(() => {
         this.contacts = [
-          { 'id': '1', 'FirstName': 'jorge', 'LastName': 'luiz' },
-          { 'id': '2', 'FirstName': 'joe', 'LastName': 'gonzales' },
+          new Contact({ 'id': '1', 'FirstName': 'jorge', 'LastName': 'luiz' }),
+          new Contact({ 'id': '2', 'FirstName': 'joe', 'LastName': 'gonzales' })
         ];
 
         observer.next(this.contacts);
@@ -86,7 +86,7 @@ export class ContactService {
   getContact() {
     this.contactObs = new Observable(observer => {
       setTimeout(() => {
-        this.contact = { 'id': '1', 'FirstName': 'jorge', 'LastName': 'luiz' };
+        this.contact = new Contact({ 'id': '1', 'FirstName': 'jorge', 'LastName': 'luiz' });
         if (this.contact && this.contact.Address) {
           this.contact.Address = undefined;
         }
