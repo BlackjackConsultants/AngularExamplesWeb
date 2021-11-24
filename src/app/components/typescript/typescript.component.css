@@ -1,0 +1,30 @@
+.ui-block-anim {
+    height: 122px;
+    width: 100%;
+    background-color: yellow;
+}
+
+.square {
+    height: 22px;
+    width: 22px;
+    background-color: red;
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+.animate {
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

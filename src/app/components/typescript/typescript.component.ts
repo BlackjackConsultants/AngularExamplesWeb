@@ -246,7 +246,7 @@ export class TypescriptComponent implements OnInit {
 
   typeOfExample() {
     // this wont work for complex types, only string, number, etc
-    let contact: Contact = new Contact({firstName: 'jorge', lastName: 'perez'});
+    let contact: Contact = new Contact({ firstName: 'jorge', lastName: 'perez' });
     let test = typeof contact;
     // this does work.
     console.log(contact instanceof Contact); //Prints true;
@@ -266,7 +266,7 @@ export class TypescriptComponent implements OnInit {
       setTimeout(() => {
         console.log("Done waiting");
         resolve(ms)
-      }, ms )
+      }, ms)
     })
   }
 
@@ -283,5 +283,35 @@ export class TypescriptComponent implements OnInit {
     console.log(`delay2 level 1 - before`);
     contact.delaySimulation();
     console.log(`delay2 level 1 - after`);
+  }
+
+  blockForFiveMilliSeconds() {
+    let timeNow = Date.now();
+    const startingTime = timeNow;
+
+    while (timeNow - startingTime < 5) {
+      timeNow = Date.now();
+    }
+  };
+
+  loopThatDontBlockUI() {
+    console.log(`before loopThatDontBlockUI loop`);
+    let i = 0;
+    const run = () => {
+      if (i < 1000) {
+        requestAnimationFrame(() => {
+          this.blockForFiveMilliSeconds()
+          i++
+        })
+      }
+    }
+    run()
+    console.log(`after loopThatDontBlockUI loop`);
+  }
+
+  loopThatBlockUI() {
+    for (let i = 0; i < 1000; i++) {
+      this.blockForFiveMilliSeconds();
+    }
   }
 }
