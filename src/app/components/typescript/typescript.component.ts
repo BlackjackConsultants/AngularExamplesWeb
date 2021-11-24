@@ -24,6 +24,8 @@ export class TypescriptComponent implements OnInit {
   perimeter2!: number;
   perimeter4!: number;
   adressType!: addressTypeEnum;
+  i = 0;
+
 
   constructor() {
     this.adressType = addressTypeEnum.home;
@@ -289,24 +291,28 @@ export class TypescriptComponent implements OnInit {
     let timeNow = Date.now();
     const startingTime = timeNow;
 
-    while (timeNow - startingTime < 5) {
+    console.log(`step 3: before`);
+    while (timeNow - startingTime < 1000) {
       timeNow = Date.now();
     }
+    console.log(`step 4: before`);
   };
 
-  loopThatDontBlockUI() {
-    console.log(`before loopThatDontBlockUI loop`);
-    let i = 0;
-    const run = () => {
-      if (i < 1000) {
-        requestAnimationFrame(() => {
-          this.blockForFiveMilliSeconds()
-          i++
-        })
-      }
+
+  loopThatDontBlockUI(i: number = 0) {
+    this.i = i;
+    console.log(`step 1: before loopThatDontBlockUI loop`);
+    requestAnimationFrame(() => {
+      console.log(`step 2: before`);
+      this.blockForFiveMilliSeconds()
+      console.log(`step 5: after`);
+    })
+    console.log(`step 6: after`);
+    if (i < 5) {
+      this.i++
+      this.loopThatDontBlockUI(this.i);
+      console.log(`step 7: after loopThatDontBlockUI loop`);
     }
-    run()
-    console.log(`after loopThatDontBlockUI loop`);
   }
 
   loopThatBlockUI() {
