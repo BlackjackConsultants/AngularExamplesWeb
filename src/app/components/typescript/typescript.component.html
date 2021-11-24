@@ -94,6 +94,13 @@
   <li>
     <h2>Object Events</h2>
     <p>object events</p>
-    <button (click)="objectEvents()">typeof</button>
+    <button (click)="objectEvents()">Test</button>
+  </li>
+  <li>
+    <h2>Synched Delay</h2>
+    <p>delay works only in outer function</p>
+    <button (click)="delay()">Test One Level</button>
+    <p>delay DOES NOT work in inner function</p>
+    <button (click)="delay2()">Test Two Level</button>
   </li>
 </ul>

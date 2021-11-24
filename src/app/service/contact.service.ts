@@ -19,7 +19,7 @@ export class ContactService {
   getAddress(addressId: number): Observable<Address> {
     this.addressObs = new Observable(observer => {
       setTimeout(() => {
-        let address = { Name: '1039nw', ZipCode: '33333' };
+        let address = new Address({ Name: '1039nw', ZipCode: '33333' });
         observer.next(address);
       }, 4000);
 
@@ -33,8 +33,8 @@ export class ContactService {
   getAddressesByContactId(contactId: string | undefined): Observable<Address[]> {
     this.addressesObs = new Observable<Address[]>(observer => {
       setTimeout(() => {
-        let addresses = [{ Name: '1039nw', ZipCode: '33333' },
-        { Name: '1039nw', ZipCode: '33333' }];
+        let addresses = [new Address({ Name: '1039nw', ZipCode: '33333' }),
+                        new Address({ Name: '1039nw', ZipCode: '33333' })];
         observer.next(addresses);
       }, 4000);
 
@@ -49,10 +49,10 @@ export class ContactService {
     this.addressesObs = new Observable(observer => {
       setTimeout(() => {
         let addresses = [
-          { Name: '1039nw', ZipCode: '11111', ContactId: 1 },
-          { Name: '1039nw', ZipCode: '22222', ContactId: 2 },
-          { Name: '1039nw', ZipCode: '33333', ContactId: 1 },
-          { Name: '1039nw', ZipCode: '44444', ContactId: 2 },
+          new Address({ Name: '1039nw', ZipCode: '11111', ContactId: 1 }),
+          new Address({ Name: '1039nw', ZipCode: '22222', ContactId: 2 }),
+          new Address({ Name: '1039nw', ZipCode: '33333', ContactId: 1 }),
+          new Address({ Name: '1039nw', ZipCode: '44444', ContactId: 2 }),
         ];
         observer.next(addresses);
       }, 4000);

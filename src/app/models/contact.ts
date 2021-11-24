@@ -9,6 +9,7 @@ export class Contact extends EventTarget {
     this.alias = contact?.email;
     this.Phones = [];
     this.Addresses = [];
+    this.Addresses.push(new Address({name: 'test', zipCode: '33333'}));
   }
   BirthDay?: Date;
   Occupation?: string;
@@ -21,14 +22,13 @@ export class Contact extends EventTarget {
   Notes?: string;
   Phones?: Phone[] = [];
   Address?: Address;
-  Addresses?: Address[];
+  Addresses: Address[];
 
   private _complete: Event = new Event('complete')
 
   createFileAs?(): string {
     return `${this.LastName}, ${this.FirstName}`;
   }
-
   
   public start(): void {
     setTimeout(() => {
@@ -36,4 +36,10 @@ export class Contact extends EventTarget {
     }, 2000)
   }
 
+  
+  delaySimulation() {
+    console.log(`delaySimulation level 2 before`);
+    this.Addresses[0].delayTest();
+    console.log(`delaySimulation level 2 after`);
+  }
 }

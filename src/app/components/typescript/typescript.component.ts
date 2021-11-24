@@ -260,4 +260,28 @@ export class TypescriptComponent implements OnInit {
     });
     contact.start();
   }
+
+  wait(ms) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log("Done waiting");
+        resolve(ms)
+      }, ms )
+    })
+  }
+
+  delay() {
+    (async () => {
+      console.log(`Starting... ${Date.now()}`)
+      await this.wait(5000);
+      console.log(`Ended... ${Date.now()}`)
+    })();
+  }
+
+  delay2() {
+    let contact = new Contact();
+    console.log(`delay2 level 1 - before`);
+    contact.delaySimulation();
+    console.log(`delay2 level 1 - after`);
+  }
 }
