@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-sample-component',
@@ -8,7 +8,9 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 })
 export class SampleComponentComponent implements OnInit {
   _controlWidth: number = 222;
-
+  @ViewChild('divToScroll')
+  divToScroll!: ElementRef;
+  
   get controlWidth(): number {
     return this._controlWidth;
   }
@@ -24,6 +26,10 @@ export class SampleComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  scroll() {
+    this.divToScroll.nativeElement.scrollTop = this.divToScroll.nativeElement.scrollHeight;
   }
 
 }

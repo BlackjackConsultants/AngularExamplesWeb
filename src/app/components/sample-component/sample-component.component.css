@@ -6,3 +6,9 @@ app-sample-component
 .board-dominos {
     background-color: orange;
 }
+
+.div-to-scroll {
+    overflow: auto;
+    height: 333px;
+    width: 1111px;
+}
